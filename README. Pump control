@@ -1,0 +1,14 @@
+Readme
+Flow Sensor Meter & Display System - Pump Control
+Pump Control Overview
+The system uses a pump (or valve) to control liquid dispensing. The pump should run until the target volume (850 ml) is reached.
+Component ESP32 Pin
+Pump (via relay or MOSFET) GPIO 5
+Flow Sensor Signal GPIO 4
+Display (I2C) SDA=21, SCL=22
+
+Control Options
+
+1. Automatic only – Pump runs until 850 ml is reached
+2. Button start – Pump starts on button press, stops at 850 ml
+3. Button stop – Optional button to stop early. 
