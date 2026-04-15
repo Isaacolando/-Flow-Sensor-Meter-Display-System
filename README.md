@@ -58,6 +58,6 @@ All other team members' feature branches follow the same pattern.
 
 ---
 
-**Contribution by:** [Your Team Member Name]  
-**Date:** April 2026  
+**Contribution by:** [Isaac Mburu]  
+**15** April 2026  
 **Embedded Systems Lab – Flow Sensor Meter & Display System**
