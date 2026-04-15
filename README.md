@@ -1,63 +1,56 @@
-# 🔧 LCD Display Feature Branch
+# 🚀 ESP32 Flow Sensor Dispensing System
 
-![LCD](https://img.shields.io/badge/LCD-I2C-007ACC?style=for-the-badge)
 ![ESP32](https://img.shields.io/badge/ESP32-000000?style=for-the-badge&logo=espressif&logoColor=white)
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![Arduino IDE](https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white)
+![Embedded Systems](https://img.shields.io/badge/Lab-Embedded%20Systems-blueviolet?style=for-the-badge)
 
-**Feature Branch:** `lcd-display`  
-**Team Member Contribution** – Embedded Systems Lab
-
----
-
-## 🎯 What This Branch Implements
-
-This branch is responsible for the **real-time LCD display** functionality of the Flow Sensor Dispensing System.
-
-### Implemented Features:
-- ✅ Integrated **I2C 16x2 LCD** using `LiquidCrystal_I2C` library
-- ✅ Live display of:
-  - **Total Volume Dispensed** (in ml)
-  - **Flow Rate** (in L/min)
-- ✅ Clean and readable formatting on the LCD
-- ✅ Updated display every second during dispensing
-- ✅ Proper initialization and backlight control
-- ✅ Integration with main dispensing logic (volume & flow rate)
+**Embedded Systems Lab: Flow Sensor Meter & Display System**  
+**Real-time Liquid Dispensing Machine with Cost Calculation**
 
 ---
 
-## 📋 Files Modified / Added in This Branch
+## 🎯 Project Objective
 
-- `flow_sensor.ino` – Added LCD setup, display logic, and real-time updates
-- `README.md` – This file (feature branch only)
-
----
-
-## 🔍 LCD Display Layout (During Operation)
-
-**Line 1:** `Vol: 850 ml`  
-**Line 2:** `Flow: 2.8 L/m`
-
-Cost is calculated in the background and shown via Serial Monitor.
+This system uses an **ESP32 microcontroller** to:
+- Measure liquid flow using a **YF-S201 Hall-effect flow sensor**
+- Control a pump/valve for dispensing
+- Display **real-time** values on an I2C LCD:
+  - Total Volume Dispensed (ml)
+  - Flow Rate (L/min)
+  - Total Cost in Kenyan Shillings (KSh)
+- Automatically stop dispensing at **≥ 850 ml**
+- Calculate cost at **12 KSh per 80 ml** (i.e., **0.15 KSh per ml**)
 
 ---
 
-## 🛠️ How to Test This Feature
+## ✨ Key Features
 
-1. Switch to this branch
-2. Upload `flow_sensor.ino` to ESP32
-3. Connect I2C LCD (SDA → GPIO 21, SCL → GPIO 22)
-4. Start dispensing using the button
-5. Observe real-time updates on the LCD
-
----
-
-## 📌 Note for Main Branch
-
-This `README.md` file is **only for the `lcd-display` branch** and will **not** be merged into `main`/`master` as per Tutorial 5 requirements.
-
-All other team members' feature branches follow the same pattern.
+- ✅ Pulse counting from flow sensor using interrupt (GPIO 27)
+- ✅ Real-time volume, flow rate & cost calculation
+- ✅ Push button (GPIO 14) to start/stop dispensing
+- ✅ Relay control for pump/valve (GPIO 26)
+- ✅ Auto-stop when target of **850 ml** is reached
+- ✅ Live updates on **I2C 16x2 LCD**
+- ✅ Detailed output via Serial Monitor
+- ✅ Fully meets all Embedded Systems Lab requirements
 
 ---
 
-**Contribution by:** [Isaac Mburu]  
-**15** April 2026  
-**Embedded Systems Lab – Flow Sensor Meter & Display System**
+## 🛠️ Hardware Used
+
+| Component                  | ESP32 Pin      | Role |
+|---------------------------|----------------|------|
+| YF-S201 Flow Sensor       | GPIO 27        | Pulse input (interrupt) |
+| I2C 16×2 LCD              | SDA=21, SCL=22 | Real-time display |
+| Start/Stop Button         | GPIO 14        | Toggle dispensing |
+| Relay / Pump / Valve      | GPIO 26        | Control liquid flow |
+
+---
+
+## 💰 Cost Calculation
+
+**Rate:** 12 Kenyan Shillings per 80 ml  
+**Formula:**  
+```math
+Cost (KSh) = Total Volume (ml) × 0.15
