@@ -32,9 +32,9 @@ This branch handles the **Start/Stop button interface** for the Flow Sensor Disp
 
 ## 🔍 Button Behavior
 
-- **Short press**: Toggles dispensing ON/OFF  
-- When **ON**: Pump turns ON and system starts measuring flow  
-- When **OFF**: Pump turns OFF and flow rate resets to 0  
+- Short press: Toggles dispensing ON/OFF  
+- When ON: Pump turns ON and system starts measuring flow  
+- When OFF: Pump turns OFF and flow rate resets to 0  
 - LCD shows "Dispensing..." or "Stopped" accordingly
 
 ---
@@ -43,7 +43,7 @@ This branch handles the **Start/Stop button interface** for the Flow Sensor Disp
 
 1. Switch to this branch
 2. Upload the code to ESP32
-3. Connect push button to **GPIO 14** (with pull-up)
+3. Connect push button to GPIO 14(with pull-up)
 4. Press the button to start dispensing
 5. Press again to stop
 6. Verify pump/relay responds correctly
@@ -58,6 +58,6 @@ The main branch will only contain the combined working code without individual f
 
 ---
 
-**Contribution by:** [ Cal-khodie /Caleb Njiru]  
-**Date:** April 2026  
-**Embedded Systems Lab – Flow Sensor Meter & Display System**
+Contribution by: [ Cal-khodie /Caleb Njiru]  
+Date: 15 April 2026  
+Embedded Systems Lab – Flow Sensor Meter & Display System**
